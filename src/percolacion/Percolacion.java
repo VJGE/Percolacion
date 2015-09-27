@@ -32,19 +32,25 @@ public class Percolacion {
         System.out.println("Ingrese el tamaño de la matriz");
         tamanioM = scan.nextInt();
 
-        System.out.println("Ingrese el aumento de la probabilidad");
-        float aumentoP = scan.nextFloat();
+        System.out.println("Ingrese el delta de la probabilidad (numero entero entre 0 y 100)");
+        float aumentoP = scan.nextFloat()/100;
 
         System.out.println("Ingrese el numero de matrices por probabilidad");
         int numeroM = scan.nextInt();
-
-        for (float i = 0; i <= 1; i = +aumentoP) {
+        
+        matriz=new boolean[tamanioM][tamanioM];
+        System.out.println(aumentoP);
+        for (float i = 0; i <= 1; i+= aumentoP) {
+            System.out.println(i);
             acumulado = 0;
             for (int j = 0; j < numeroM; j++) {
                 crearMatriz(tamanioM, i);
+                seeMatrix();
                 int pos[] = {0, 0};
                 acumulado = +pathFinder(pos);
+                System.out.println("+++++++++++++++++++");
             }
+            System.out.println("acumulado de "+i+": "+acumulado);
             float a = (acumulado / numeroM);
             float aux[] = {i, a};
             resultados.add(aux);
@@ -68,14 +74,32 @@ public class Percolacion {
         }
     }
 
+    public static void seeMatrix(){
+        for (int i = 0; i < tamanioM; i++) {
+            for (int j = 0; j < tamanioM; j++) {
+                if(matriz[i][j]){
+                    System.out.print("X ");
+                }
+                else{
+                    System.out.print("O ");
+                }
+            }
+            System.out.println("");
+            
+        }
+        System.out.println("");
+        System.out.println("-----");
+        System.out.println("");
+    
+    }
     public static int pathFinder(int[] posicion) {
         int retorno;
-        if (posicion[0] >= tamanioM || posicion[0] >= tamanioM || posicion[0] < 0 || posicion[1] < 0) {
+        if (posicion[0] >= tamanioM || posicion[1] >= tamanioM || posicion[0] < 0 || posicion[1] < 0) {
             return 0;
         }
         int a;
         int b;
-        if (matriz[posicion[0]][posicion[1]] && posicion[0] == 0) {
+        if (matriz[posicion[0]][posicion[1]] && posicion[1] == 0) {
             a = posicion[0] + 1;
             b = posicion[1];
             int temp[] = {a, b};
@@ -89,6 +113,7 @@ public class Percolacion {
             return 1;
         }
         matriz[posicion[0]][posicion[1]]=true;
+        seeMatrix();
         //evalua camino hacia abajo
         a = posicion[0];
         b = posicion[1] + 1;
