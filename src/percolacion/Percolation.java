@@ -26,7 +26,6 @@ public class Percolation {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        ui = new Graphic();
         Scanner scan = new Scanner(System.in);
         
         int accumulated = 0;
@@ -36,8 +35,14 @@ public class Percolation {
         System.out.println("Ingrese el tamaño de la matriz");
         sizeM = scan.nextInt();
 
-        System.out.println("Ingrese el delta de la probabilidad (numero entero entre 0 y 100)");
+        System.out.println("Ingrese el delta de la probabilidad (numero entero entre 1 y 100)");
         float increaseP = scan.nextFloat()/100;
+        while (increaseP==0){
+            System.out.println("Ingresó 0, por favor intente de nuevo");
+            System.out.println("Ingrese el delta de la probabilidad (numero entero entre 1 y 100)");
+            increaseP = scan.nextFloat()/100;
+        }
+        
 
         System.out.println("Ingrese el numero de matrices por probabilidad");
         int numberM = scan.nextInt();
@@ -45,27 +50,18 @@ public class Percolation {
         matrix=new boolean[sizeM][sizeM];
         System.out.println(increaseP);
         for (float i = 0; i <= 1; i+= increaseP) {
-            System.out.println(i);
             accumulated = 0;
             for (int j = 0; j < numberM; j++) {
                 createMatrix(sizeM, i);
                 //seeMatrix();
                 int pos[] = {0, 0};
-                //System.out.print(" ANTES " + accumulated);
                 accumulated = accumulated + pathFinder(pos);
-                //System.out.print(" PATH " + pathFinder(pos));
-                //System.out.print(" LUEGO "+ accumulated);
-                //System.out.println("+++++++++++++++++++");
             }
             float tempN = (float)numberM;
-            System.out.println( "acumulado de "+i+": "+accumulated + " probabilidad " + (accumulated/tempN));
+            System.out.println( "Probabilidad de sólido: "+i+ " Probabilidad de percolación: " + (accumulated/tempN));
             results.add(new float[]{i,(accumulated/tempN)});
-            
-            //float a = (accumulated / numberM);
-            //float aux[] = {i, a};
-            //results.add(aux);
         }
-        graphic(results);
+        ui = new Graphic();
     }
 
     public static void createMatrix(int n, float p) {
@@ -163,9 +159,5 @@ public class Percolation {
         }
 
         return returnT;
-    }
-
-    public static void graphic(ArrayList<float[]> results) {
-
     }
 }

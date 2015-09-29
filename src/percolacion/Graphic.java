@@ -9,7 +9,7 @@ import java.awt.Graphics2D;
 
 /**
  *
- * @author Sango
+ * @authors: Sebastian Valencia, Christian Jiménez, Deici Gómez
  */
 public class Graphic extends javax.swing.JFrame {
 
@@ -17,9 +17,10 @@ public class Graphic extends javax.swing.JFrame {
      * Creates new form Grafica
      */
     public Graphic() {
+        
+        
         try {
             initComponents();
-            
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -37,7 +38,65 @@ public class Graphic extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Graphic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-       
+        
+        Graphics2D gfx = (Graphics2D)jPanel1.getGraphics();
+        
+        gfx.drawLine(30,(350-30),400,(350-30));
+        gfx.drawLine(30,(350-30),30,10);
+        
+        //Y
+        gfx.drawString("0",20,((350-30)+4));
+        gfx.drawString("0,1",12,((350-60)+4));
+        gfx.drawString("0,2",12,((350-90)+4));
+        gfx.drawString("0,3",12,((350-120)+4));
+        gfx.drawString("0,4",12,((350-150)+4));
+        gfx.drawString("0,5",12,((350-180)+4));
+        gfx.drawString("0,6",12,((350-210)+4));
+        gfx.drawString("0,7",12,((350-240)+4));
+        gfx.drawString("0,8",12,((350-270)+4));
+        gfx.drawString("0,9",12,((350-300)+4));
+        gfx.drawString("1",20,((350-330)+4));
+        
+        //X
+        gfx.drawString("0,1",(60-3),(350-14));
+        gfx.drawString("0,2",(90-3),(350-14));
+        gfx.drawString("0,3",(120-3),(350-14));
+        gfx.drawString("0,4",(150-3),(350-14));
+        gfx.drawString("0,5",(180-3),(350-14));
+        gfx.drawString("0,6",(210-3),(350-14));
+        gfx.drawString("0,7",(240-3),(350-14));
+        gfx.drawString("0,8",(270-3),(350-14));
+        gfx.drawString("0,9",(300-3),(350-14));
+        gfx.drawString("1",(330-3),(350-14));
+        
+        gfx.drawLine(30,(350-30),400,(350-30));
+        gfx.drawLine(30,(350-30),30,10);
+        
+        //Y
+        gfx.drawString("0",20,((350-30)+4));
+        gfx.drawString("0,1",12,((350-60)+4));
+        gfx.drawString("0,2",12,((350-90)+4));
+        gfx.drawString("0,3",12,((350-120)+4));
+        gfx.drawString("0,4",12,((350-150)+4));
+        gfx.drawString("0,5",12,((350-180)+4));
+        gfx.drawString("0,6",12,((350-210)+4));
+        gfx.drawString("0,7",12,((350-240)+4));
+        gfx.drawString("0,8",12,((350-270)+4));
+        gfx.drawString("0,9",12,((350-300)+4));
+        gfx.drawString("1",20,((350-330)+4));
+        
+        //X
+        gfx.drawString("0,1",(60-3),(350-14));
+        gfx.drawString("0,2",(90-3),(350-14));
+        gfx.drawString("0,3",(120-3),(350-14));
+        gfx.drawString("0,4",(150-3),(350-14));
+        gfx.drawString("0,5",(180-3),(350-14));
+        gfx.drawString("0,6",(210-3),(350-14));
+        gfx.drawString("0,7",(240-3),(350-14));
+        gfx.drawString("0,8",(270-3),(350-14));
+        gfx.drawString("0,9",(300-3),(350-14));
+        gfx.drawString("1",(330-3),(350-14));
+        
     }
 
     /**
@@ -50,22 +109,31 @@ public class Graphic extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.setPreferredSize(new java.awt.Dimension(350, 300));
+        jPanel1.setPreferredSize(new java.awt.Dimension(500, 500));
+
+        jLabel1.setText("Probabilidad de que exista un sólido");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 348, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(164, 164, 164)
+                .addComponent(jLabel1)
+                .addContainerGap(165, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 305, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1))
         );
 
         jButton1.setText("Ver gráfica");
@@ -75,28 +143,43 @@ public class Graphic extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setText("Probabilidad ");
+
+        jLabel3.setText("de percolación");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(176, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(132, 132, 132))))
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(79, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(196, 196, 196)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addGap(153, 153, 153)))
+                .addGap(26, 26, 26)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -105,7 +188,6 @@ public class Graphic extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         pintar();
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -138,43 +220,60 @@ public class Graphic extends javax.swing.JFrame {
                 new Graphic().setVisible(true);
             }
         });
+        
     }
 
     
     public void pintar(){
         Graphics2D gfx = (Graphics2D)jPanel1.getGraphics();
         
-        gfx.drawLine(30,270,330,270);
-        gfx.drawLine(30,270,30,20);
+        gfx.drawLine(30,(350-30),400,(350-30));
+        gfx.drawLine(30,(350-30),30,10);
         
         //Y
-        gfx.drawString("0",20,((300-30)+4));
-        gfx.drawString("0,5",12,((300-80)+4));
-        gfx.drawString("1",20,((300-130)+4));
+        gfx.drawString("0",20,((350-30)+4));
+        gfx.drawString("0,1",12,((350-60)+4));
+        gfx.drawString("0,2",12,((350-90)+4));
+        gfx.drawString("0,3",12,((350-120)+4));
+        gfx.drawString("0,4",12,((350-150)+4));
+        gfx.drawString("0,5",12,((350-180)+4));
+        gfx.drawString("0,6",12,((350-210)+4));
+        gfx.drawString("0,7",12,((350-240)+4));
+        gfx.drawString("0,8",12,((350-270)+4));
+        gfx.drawString("0,9",12,((350-300)+4));
+        gfx.drawString("1",20,((350-330)+4));
         
         //X
-        gfx.drawString("0,5",(80-3),286);
-        gfx.drawString("1",(130-3),286);
+        gfx.drawString("0,1",(60-3),(350-14));
+        gfx.drawString("0,2",(90-3),(350-14));
+        gfx.drawString("0,3",(120-3),(350-14));
+        gfx.drawString("0,4",(150-3),(350-14));
+        gfx.drawString("0,5",(180-3),(350-14));
+        gfx.drawString("0,6",(210-3),(350-14));
+        gfx.drawString("0,7",(240-3),(350-14));
+        gfx.drawString("0,8",(270-3),(350-14));
+        gfx.drawString("0,9",(300-3),(350-14));
+        gfx.drawString("1",(330-3),(350-14));
         
         for(int i=0;i<Percolation.results.size()-1;i++){
                        
-            int x1 = (int)(Percolation.results.get(i)[0]*100)+30;
-            int y1 = (int)(Percolation.results.get(i)[1]*100)+30;
-            int x2 = (int)(Percolation.results.get(i+1)[0]*100)+30;
-            int y2 = (int)(Percolation.results.get(i+1)[1]*100)+30;
+            int x1 = (int)(Percolation.results.get(i)[0]*300)+30;
+            int y1 = (int)(Percolation.results.get(i)[1]*300)+30;
+            int x2 = (int)(Percolation.results.get(i+1)[0]*300)+30;
+            int y2 = (int)(Percolation.results.get(i+1)[1]*300)+30;
            
-            gfx.drawLine(x1,300-y1,x2,300-y2);
-            gfx.drawString("o",(x1-3),((300-y1)+4));
-            gfx.drawString("o",(x2-3),((300-y2)+4));
-
-            //System.out.println(x1+","+y1 + " " +x2+","+y2);
-
+            gfx.drawLine(x1,350-y1,x2,350-y2);
+            gfx.drawString("o",(x1-3),((350-y1)+4));
+            gfx.drawString("o",(x2-3),((350-y2)+4));
         }
        
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
