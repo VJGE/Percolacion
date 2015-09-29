@@ -37,66 +37,7 @@ public class Graphic extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Graphic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Graphic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        
-        Graphics2D gfx = (Graphics2D)jPanel1.getGraphics();
-        
-        gfx.drawLine(30,(350-30),400,(350-30));
-        gfx.drawLine(30,(350-30),30,10);
-        
-        //Y
-        gfx.drawString("0",20,((350-30)+4));
-        gfx.drawString("0,1",12,((350-60)+4));
-        gfx.drawString("0,2",12,((350-90)+4));
-        gfx.drawString("0,3",12,((350-120)+4));
-        gfx.drawString("0,4",12,((350-150)+4));
-        gfx.drawString("0,5",12,((350-180)+4));
-        gfx.drawString("0,6",12,((350-210)+4));
-        gfx.drawString("0,7",12,((350-240)+4));
-        gfx.drawString("0,8",12,((350-270)+4));
-        gfx.drawString("0,9",12,((350-300)+4));
-        gfx.drawString("1",20,((350-330)+4));
-        
-        //X
-        gfx.drawString("0,1",(60-3),(350-14));
-        gfx.drawString("0,2",(90-3),(350-14));
-        gfx.drawString("0,3",(120-3),(350-14));
-        gfx.drawString("0,4",(150-3),(350-14));
-        gfx.drawString("0,5",(180-3),(350-14));
-        gfx.drawString("0,6",(210-3),(350-14));
-        gfx.drawString("0,7",(240-3),(350-14));
-        gfx.drawString("0,8",(270-3),(350-14));
-        gfx.drawString("0,9",(300-3),(350-14));
-        gfx.drawString("1",(330-3),(350-14));
-        
-        gfx.drawLine(30,(350-30),400,(350-30));
-        gfx.drawLine(30,(350-30),30,10);
-        
-        //Y
-        gfx.drawString("0",20,((350-30)+4));
-        gfx.drawString("0,1",12,((350-60)+4));
-        gfx.drawString("0,2",12,((350-90)+4));
-        gfx.drawString("0,3",12,((350-120)+4));
-        gfx.drawString("0,4",12,((350-150)+4));
-        gfx.drawString("0,5",12,((350-180)+4));
-        gfx.drawString("0,6",12,((350-210)+4));
-        gfx.drawString("0,7",12,((350-240)+4));
-        gfx.drawString("0,8",12,((350-270)+4));
-        gfx.drawString("0,9",12,((350-300)+4));
-        gfx.drawString("1",20,((350-330)+4));
-        
-        //X
-        gfx.drawString("0,1",(60-3),(350-14));
-        gfx.drawString("0,2",(90-3),(350-14));
-        gfx.drawString("0,3",(120-3),(350-14));
-        gfx.drawString("0,4",(150-3),(350-14));
-        gfx.drawString("0,5",(180-3),(350-14));
-        gfx.drawString("0,6",(210-3),(350-14));
-        gfx.drawString("0,7",(240-3),(350-14));
-        gfx.drawString("0,8",(270-3),(350-14));
-        gfx.drawString("0,9",(300-3),(350-14));
-        gfx.drawString("1",(330-3),(350-14));
-        
+        }        
     }
 
     /**
